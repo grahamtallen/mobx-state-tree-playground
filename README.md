@@ -1,1 +1,1 @@
-Mobx-State-Tree example playground
+Mobx-State-Tree playground

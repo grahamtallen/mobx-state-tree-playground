@@ -5,7 +5,8 @@
   "dependencies": {
     "mobx-state-tree": "^0.6.2",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "semantic-ui-react": "^0.68.3"
   },
   "devDependencies": {
     "autoprefixer": "7.1.0",

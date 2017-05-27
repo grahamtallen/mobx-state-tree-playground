@@ -30,6 +30,9 @@ const Person = types.model({
         lastName: types.string,
         age: types.number,
         followers: types.number,
+        get fullName() {
+            return `${this.firstName} ${this.lastName}`
+        }
     }, {
         setFirstName(name) {this.firstName = name}
     }
