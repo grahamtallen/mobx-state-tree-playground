@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {observer} from 'mobx-react'
-import { Button, Card, Image } from 'semantic-ui-react'
+import { Button, Card, Image, Icon } from 'semantic-ui-react'
 
 //<div onClick={() => {
 //    console.log('clicked')
@@ -24,7 +24,7 @@ class PersonItem extends Component {
             <Card>
                 <Card.Content>
                     <Card.Header>
-                        Matthew
+                        {person.fullName}
                     </Card.Header>
                     <Card.Meta>
         <span className='date'>
