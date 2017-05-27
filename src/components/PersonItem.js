@@ -2,14 +2,6 @@ import React, { Component } from 'react';
 import {observer} from 'mobx-react'
 import { Button, Card, Image, Icon } from 'semantic-ui-react'
 
-//<div onClick={() => {
-//    console.log('clicked')
-//    person.setFirstName(person.firstName + ' clicked')
-//    console.log("New Name: ", person.firstName)
-//
-//}} className="person_item">
-//    <p>{person.firstName}</p>
-//</div>
 
 @observer
 class PersonItem extends Component {
@@ -18,27 +10,29 @@ class PersonItem extends Component {
         console.log(person)
     }
 
+    addFollower = (person) => {
+        person.addFollower();
+    }
+
     render() {
-        let {person} = this.props
+        let {person} = this.props;
+        let {fullName, age, followers} = person
         return (
             <Card>
                 <Card.Content>
                     <Card.Header>
-                        {person.fullName}
+                        {fullName}
                     </Card.Header>
                     <Card.Meta>
-        <span className='date'>
-          Joined in 2015
-        </span>
+                        <span className='date'>
+                            {age} years old
+                        </span>
                     </Card.Meta>
-                    <Card.Description>
-                        Matthew is a musician living in Nashville.
-                    </Card.Description>
                 </Card.Content>
-                <Card.Content extra>
+                <Card.Content onClick={person.addFollower} extra>
                     <a>
                         <Icon name='user' />
-                        22 Friends
+                        {followers} Followers
                     </a>
                 </Card.Content>
             </Card>

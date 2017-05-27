@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import PeopleList from './components/PeopleList'
+import PeopleList from './components/PeopleList';
+import MetaData from './components/MetaData';
+import GlobalStore from './stores/GlobalStore';
+import {Grid} from 'semantic-ui-react';
+import {Provider} from 'mobx-react';
+
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <div className="App-intro">
-          <PeopleList />
-        </div>
-      </div>
+        <Provider {...GlobalStore}>
+            <Grid  centered textAlign="center">
+                <Grid.Row className="grid" centered textAlign="center">
+                    <MetaData />
+                </Grid.Row>
+                <Grid.Row className="grid" centered textAlign="center">
+                    <PeopleList />
+                </Grid.Row>
+            </Grid>
+        </Provider>
     );
   }
 }
