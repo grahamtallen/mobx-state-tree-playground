@@ -56,16 +56,20 @@ const peopleStoreInstance = PeopleStore.create({
     hydrated: true
 })
 
-const NewPersonStore = types.model({
-    newPerson: types.map(Person),
+const NewPersonStore = types.model('New Person', {
+        firstName: "",
+        lastName: "",
+        age: 0,
+        followers: 0
 }, {
+    setField(fieldName, val) {
+        this[fieldName] = val
+    },
     clearNewPerson() {
-        this.newPerson = Person.create({
-            firstName: "",
-            lastName: "",
-            age: 0,
-            followers: 0
-        })
+        this.firstName =  "";
+        this.lastName =  "";
+        this.age =  0;
+        this.followers =  0;
     }
 })
 
