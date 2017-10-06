@@ -81,8 +81,7 @@ history.snapshots.push({
 })
 
 
-@observer
-class App extends Component {
+export default observer(class App extends Component {
   render() {
       console.log('Rerendered: ', PeopleStore.selectedPerson)
       return (
@@ -103,6 +102,4 @@ class App extends Component {
         </Provider>
     );
   }
-}
-
-export default App;
+});

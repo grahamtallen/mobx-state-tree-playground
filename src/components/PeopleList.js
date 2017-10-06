@@ -4,7 +4,7 @@ import {observer} from 'mobx-react';
 import {Card} from 'semantic-ui-react'
 import {inject} from 'mobx-react';
 
-@inject('PeopleStore') @observer
+
 class PeopleList extends Component {
 
     render() {
@@ -17,4 +17,4 @@ class PeopleList extends Component {
     }
 }
 
-export default PeopleList;
+export default inject('PeopleStore')(observer(PeopleList));

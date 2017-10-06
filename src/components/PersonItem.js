@@ -3,7 +3,7 @@ import {observer, inject} from 'mobx-react'
 import { Button, Card, Image, Icon } from 'semantic-ui-react'
 
 
-@inject('PeopleStore') @observer
+
 class PersonItem extends Component {
 
     onClick = (person) => {
@@ -40,4 +40,4 @@ class PersonItem extends Component {
     }
 }
 
-export default PersonItem;
+export default inject('PeopleStore')(observer(PersonItem));
