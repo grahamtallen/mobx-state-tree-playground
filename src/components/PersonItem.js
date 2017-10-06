@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import {observer} from 'mobx-react'
+import {observer, inject} from 'mobx-react'
 import { Button, Card, Image, Icon } from 'semantic-ui-react'
 
 
-@observer
+@inject('PeopleStore') @observer
 class PersonItem extends Component {
 
     onClick = (person) => {
@@ -15,12 +15,12 @@ class PersonItem extends Component {
     }
 
     render() {
-        let {person} = this.props;
-        let {fullName, age, followers} = person
+        let {person, PeopleStore} = this.props;
+        let {fullName, age, followers, person_id} = person
         return (
             <Card>
                 <Card.Content>
-                    <Card.Header>
+                    <Card.Header onClick={() => PeopleStore.selectPerson(person)}>
                         {fullName}
                     </Card.Header>
                     <Card.Meta>
@@ -29,7 +29,7 @@ class PersonItem extends Component {
                         </span>
                     </Card.Meta>
                 </Card.Content>
-                <Card.Content onClick={person.addFollower} extra>
+                <Card.Content onClick={() => person.addFollower()} extra>
                     <a>
                         <Icon name='user' />
                         {followers} Followers

@@ -4,14 +4,14 @@ import {observer} from 'mobx-react';
 import {Card} from 'semantic-ui-react'
 import {inject} from 'mobx-react';
 
-@observer @inject('PeopleStore')
+@inject('PeopleStore') @observer
 class PeopleList extends Component {
 
     render() {
         let {PeopleStore} = this.props
         return (
-            <Card.Group  className="people_list">
-                {PeopleStore.people.map((person) => <PersonItem person={person} key={person.firstName} />)}
+            <Card.Group doubling className="people_list">
+                {PeopleStore.people.map((person) => <PersonItem person={person} key={person.person_id} />)}
             </Card.Group>
         );
     }
